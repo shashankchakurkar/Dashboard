@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="staticList1"
+    ViewObjectName="model.VO.staticList"/>
+  <ViewUsage
+    Name="HeaderVO1"
+    ViewObjectName="model.VO.HeaderVO"/>
+  <ViewUsage
+    Name="LinesVO1"
+    ViewObjectName="model.VO.LinesVO"/>
+  <ViewUsage
+    Name="EmpNameLOV1"
+    ViewObjectName="model.VO.EmpNameLOV"/>
+  <ViewLinkUsage
+    Name="HeaderToLineVL1"
+    ViewLinkObjectName="model.VO.HeaderToLineVL"
+    SrcViewUsageName="model.Service.AppModule.HeaderVO1"
+    DstViewUsageName="model.Service.AppModule.LinesVO1"
+    Reversed="false"/>
+</AppModule>

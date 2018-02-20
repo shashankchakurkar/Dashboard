@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Activities">
+    <page>/Activities.jsf</page>
+  </view>
+  <view id="Delinquent">
+    <page>/Delinquent.jsf</page>
+  </view>
+  <view id="manageresources">
+    <page>/manageresources.jsf</page>
+  </view>
+  <control-flow-rule id="__2">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__3">
+      <from-outcome>goToDelinquent</from-outcome>
+      <to-activity-id>Delinquent</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>goToActivities</from-outcome>
+      <to-activity-id>Activities</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__6">
+      <from-outcome>goToManageResources</from-outcome>
+      <to-activity-id>manageresources</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__7">
+    <from-activity-id>manageresources</from-activity-id>
+    <control-flow-case id="__8">
+      <from-outcome>goToBack</from-outcome>
+      <to-activity-id>Delinquent</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>DashboardBean</managed-bean-name>
+    <managed-bean-class>view.DashboardNavigation</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name>ManageBean</managed-bean-name>
+    <managed-bean-class>view.ManageResource</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Activities.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/DashboardTemplete.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="body">
+                    <af:outputText value="Activities" id="ot1"/>
+                    <af:group id="g1">
+                        <af:panelGridLayout id="pgl1">
+                        
+                        
+                        
+                            <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                <af:gridCell marginStart="5px" width="50%" id="gc1">
+                                
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                                
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                <af:gridCell marginStart="5px" width="50%" id="gc3">
+                                
+                                </af:gridCell>
+                                
+                                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4">
+                                
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </af:group>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

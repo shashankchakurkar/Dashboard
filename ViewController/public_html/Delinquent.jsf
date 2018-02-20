@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Delinquent.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+            <af:pageTemplate viewId="/DashboardTemplete.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="body">
+                    
+          <af:panelGroupLayout id="pgl1">
+          
+          <af:outputText value="Delinquent" id="ot2"/>
+            <!--<af:panelDashboard id="theDashboard" columns="3" rowHeight="500px">
+          
+              <af:panelBox id="box1" text="Box 1" >
+                
+              </af:panelBox>
+             
+              <af:panelBox id="box2" text="Box 2">
+               
+                <af:outputText value="Here is some content2" id="ot3"/>
+              </af:panelBox>
+              <af:panelBox id="box3" text="Box 3">
+                <af:componentDragSource/>
+                <af:outputText value="Here is some content3" id="ot4"/>
+              </af:panelBox>
+            </af:panelDashboard>-->
+          </af:panelGroupLayout>
+        </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="manageresources.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+
+           
+  <af:panelStretchLayout id="psl" topHeight="20" startWidth="100" endWidth="100" bottomHeight="20">
+  <f:facet name="top">
+  
+ 
+ 
+  
+    <af:panelGroupLayout id="hori"  layout="horizontal"
+      halign="start" inlineStyle="">
+    
+    <af:spacer id="sp4" width="10"/>
+       <af:outputText id="a" value="Manage Resources" inlineStyle="font-size:medium; height: 50.0px;" />
+     
+     <af:spacer id="sp5" width="900"/>
+      <af:button text="Save" id="b2" action="#{ManageBean.goToBack}"/>
+        <af:spacer id="sp6" width="10"/>
+      <af:button text="Save and Close" id="b3" />
+        <af:spacer id="sp7" width="10"/>
+      <af:button text="Cancel" id="b1" />
+  
+  <af:spacer id="sp8" height="20px" />
+  
+  
+</af:panelGroupLayout>
+     
+      
+  </f:facet>
+  
+  <f:facet name="start">
+     
+  </f:facet>
+  
+  <f:facet name="center">
+  
+          <af:panelBorderLayout id="pbl1" >
+            <af:panelGroupLayout id="pgl1">
+            
+            <af:spacer id="sp1" height="30"/>
+              <af:panelHeader text="" id="ph1" inlineStyle="font-size:medium;">
+              
+                 <af:panelLabelAndMessage label="" id="plam2">
+                  <af:outputText value="Collectors" 
+                                 id="ot010" inlineStyle="font-size: medium; -moz-font-style: oblique;"/>
+                </af:panelLabelAndMessage>
+                <af:panelCollection id="pc1" inlineStyle="width:1300px" featuresOff="detach">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t3">
+                      <af:button text="Reassign Customer" id="b5"/>
+                      <af:selectBooleanCheckbox text=" Include Inactive" label="" id="sbc1"/>
+                    </af:toolbar>
+                  </f:facet>
+                  
+                  <f:facet name="statusbar"/>
+                  <af:table id="md1" rows="#{bindings.HeaderVO11.rangeSize}"
+                            fetchSize="#{bindings.HeaderVO11.rangeSize}"
+                            emptyText="#{bindings.HeaderVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            var="row" value="#{bindings.HeaderVO11.collectionModel}" rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.HeaderVO11.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.HeaderVO11.collectionModel.makeCurrent}" rowSelection="single"
+                            summary="Header table" inlineStyle="-moz-background-color: Silver;">
+                    <af:column headerText="Name" sortProperty="#{bindings.HeaderVO11.hints.EmpName.name}"
+                               sortable="false" id="c10" align="left" width="150">
+                      <af:outputText value="#{row.EmpName}" shortDesc="#{bindings.HeaderVO11.hints.EmpName.tooltip}"
+                                     id="ot11"/>
+                    </af:column>
+                    <af:column headerText="Delinquencies" sortProperty="#{bindings.HeaderVO11.hints.DelqncCnt.name}"
+                               sortable="false" id="c6" align="right" width="120">
+                      <af:outputText value="#{row.DelqncCnt}" shortDesc="#{bindings.HeaderVO11.hints.DelqncCnt.tooltip}"
+                                     id="ot7" >
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.HeaderVO11.hints.DelqncCnt.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Total Delinquencies"
+                               sortProperty="#{bindings.HeaderVO11.hints.DelqncAmt.name}" sortable="false" id="c4"
+                               align="right" width="120">
+                      <af:outputText value="#{row.DelqncAmt}" shortDesc="#{bindings.HeaderVO11.hints.DelqncAmt.tooltip}"
+                                     id="ot5">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.HeaderVO11.hints.DelqncAmt.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Average Delinquencies" align="right" width="120"
+                               sortProperty="#{bindings.HeaderVO11.hints.DelqncAvg.name}" sortable="false" id="c5">
+                      <af:outputText value="#{row.DelqncAvg}" shortDesc="#{bindings.HeaderVO11.hints.DelqncAvg.tooltip}"
+                                     id="ot6">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.HeaderVO11.hints.DelqncAvg.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Currency" sortProperty="#{bindings.HeaderVO11.hints.CurrCd.name}"
+                               sortable="false" id="c2" align="left" width="100">
+                      <af:outputText value="#{row.CurrCd}" shortDesc="#{bindings.HeaderVO11.hints.CurrCd.tooltip}"
+                                     id="ot3"/>
+                    </af:column>
+                    <af:column headerText="Business Unit" rowHeader="false" align="left"
+                               sortProperty="#{bindings.HeaderVO11.hints.BusUnit.name}" sortable="false" id="c1"
+                               width="120">
+                      <af:outputText value="#{row.BusUnit}" shortDesc="#{bindings.HeaderVO11.hints.BusUnit.tooltip}"
+                                     id="ot2"/>
+                    </af:column>
+                    <af:column headerText="Delinquent Customers"
+                               sortProperty="#{bindings.HeaderVO11.hints.DelqncCust.name}" sortable="false" id="c7"
+                               align="right" width="120">
+                      <af:outputText value="#{row.DelqncCust}"
+                                     shortDesc="#{bindings.HeaderVO11.hints.DelqncCust.tooltip}" id="ot8">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.HeaderVO11.hints.DelqncCust.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Delinquent Accounts" align="right"
+                               sortProperty="#{bindings.HeaderVO11.hints.DelqncAcc.name}" sortable="false" id="c3"
+                               width="120">
+                      <af:outputText value="#{row.DelqncAcc}" shortDesc="#{bindings.HeaderVO11.hints.DelqncAcc.tooltip}"
+                                     id="ot4">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.HeaderVO11.hints.DelqncAcc.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Delinquent Sites" align="right"
+                               sortProperty="#{bindings.HeaderVO11.hints.DelqncSites.name}" sortable="false" id="c8"
+                               width="200">
+                      <af:outputText value="#{row.DelqncSites}"
+                                     shortDesc="#{bindings.HeaderVO11.hints.DelqncSites.tooltip}" id="ot9">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.HeaderVO11.hints.DelqncSites.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.HeaderVO11.hints.EmpId.label}" rendered="false"
+                               sortProperty="#{bindings.HeaderVO11.hints.EmpId.name}" sortable="false" id="c9">
+                      <af:outputText value="#{row.EmpId}" shortDesc="#{bindings.HeaderVO11.hints.EmpId.tooltip}"
+                                     id="ot10">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.HeaderVO11.hints.EmpId.format}"/>
+                      </af:outputText>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </af:panelHeader>
+              
+              <af:spacer id="sp2" height="50"/>
+              <af:panelHeader text="" id="ph2">
+                <af:panelLabelAndMessage label="" id="plam1">
+                  <af:outputText value="#{bindings.EmpName.inputValue}" shortDesc="#{bindings.EmpName.hints.tooltip}"
+                                 id="ot1" inlineStyle="font-size: medium; -moz-font-style: oblique;"/>
+                </af:panelLabelAndMessage>
+                <af:panelCollection id="pc2" inlineStyle="width:1300px" featuresOff="detach">
+                  <f:facet name="menus">
+                  </f:facet>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t2">
+                      <af:button text="Reassign Customer" id="b4"/>
+                    </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table rows="#{bindings.LinesVO1.rangeSize}" fetchSize="#{bindings.LinesVO1.rangeSize}"
+                            emptyText="#{bindings.LinesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            var="row" value="#{bindings.LinesVO1.collectionModel}" rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.LinesVO1.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.LinesVO1.collectionModel.makeCurrent}" rowSelection="single"
+                            id="t1" summary="LInes table">
+                    <af:column headerText="Name" rowHeader="true" align="left" width="200"
+                               sortProperty="#{bindings.LinesVO1.hints.CustomerName.name}" sortable="false" id="c15">
+                      <af:outputText value="#{row.CustomerName}"
+                                     shortDesc="#{bindings.LinesVO1.hints.CustomerName.tooltip}" id="ot16"/>
+                    </af:column>
+                    <af:column headerText="Total Delinquencies" align="right" width="120"
+                               sortProperty="#{bindings.LinesVO1.hints.DelqncAmt.name}" sortable="false" id="c16">
+                      <af:outputText value="#{row.DelqncAmt}" shortDesc="#{bindings.LinesVO1.hints.DelqncAmt.tooltip}"
+                                     id="ot17">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.DelqncAmt.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Delinquencies" align="right" width="120"
+                               sortProperty="#{bindings.LinesVO1.hints.DelqncCnt.name}" sortable="false" id="c18">
+                      <af:outputText value="#{row.DelqncCnt}" shortDesc="#{bindings.LinesVO1.hints.DelqncCnt.tooltip}"
+                                     id="ot19">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.DelqncCnt.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Average Delinquency" align="right" width="120"
+                               sortProperty="#{bindings.LinesVO1.hints.DelqncAvg.name}" sortable="false" id="c17">
+                      <af:outputText value="#{row.DelqncAvg}" shortDesc="#{bindings.LinesVO1.hints.DelqncAvg.tooltip}"
+                                     id="ot18">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.DelqncAvg.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Current" align="right"
+                               sortProperty="#{bindings.LinesVO1.hints.CurrentBal.name}" sortable="false" id="c14">
+                      <af:outputText value="#{row.CurrentBal}" shortDesc="#{bindings.LinesVO1.hints.CurrentBal.tooltip}"
+                                     id="ot15">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.CurrentBal.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="1-30" align="right" sortProperty="#{bindings.LinesVO1.hints.BalOn30.name}"
+                               sortable="false" id="c12">
+                      <af:outputText value="#{row.BalOn30}" shortDesc="#{bindings.LinesVO1.hints.BalOn30.tooltip}"
+                                     id="ot13">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.BalOn30.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="31-60" align="right" sortProperty="#{bindings.LinesVO1.hints.BalOn60.name}"
+                               sortable="false" id="c13">
+                      <af:outputText value="#{row.BalOn60}" shortDesc="#{bindings.LinesVO1.hints.BalOn60.tooltip}"
+                                     id="ot14">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.BalOn60.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="60+" align="right" sortProperty="#{bindings.LinesVO1.hints.BalBeyond60.name}"
+                               sortable="false" id="c11">
+                      <af:outputText value="#{row.BalBeyond60}"
+                                     shortDesc="#{bindings.LinesVO1.hints.BalBeyond60.tooltip}" id="ot12">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.BalBeyond60.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="Total Due" align="right" width="210"
+                               sortProperty="#{bindings.LinesVO1.hints.TotalDue.name}" sortable="false" id="c21">
+                      <af:outputText value="#{row.TotalDue}" shortDesc="#{bindings.LinesVO1.hints.TotalDue.tooltip}"
+                                     id="ot22">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LinesVO1.hints.TotalDue.format}"/>
+                      </af:outputText>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </af:panelHeader>
+              <af:spacer id="sp3" height="20"/>
+            </af:panelGroupLayout>
+          </af:panelBorderLayout>
+        
+        </f:facet>
+   
+  <f:facet name="end">
+ 
+  </f:facet>
+  <f:facet name="bottom">
+    <af:outputText id="b" value="" />
+  </f:facet>
+ </af:panelStretchLayout>
+</af:form>
+    </af:document>
+</f:view>

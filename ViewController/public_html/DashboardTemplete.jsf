@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core"
+                    xmlns:h="http://java.sun.com/jsf/html">
+
+    <af:decorativeBox id="pt_db1" topHeight="100px" 
+    inlineStyle="border: 5px;">
+     
+     
+    <!--top facet common --> 
+       <f:facet name="top" >
+                    <af:panelGroupLayout id="pt_pgl1" layout="vertical"  >
+                        <af:panelGroupLayout id="pt_pgl3" layout="vertical"
+                                             inlineStyle="height:40px; width:1800px;">
+                           
+                            <af:panelGroupLayout id="pt_pgl4" layout="horizontal"
+                                                 inlineStyle="color:Black; font-size:large;">
+                                <h:outputLabel value="DashBoard" id="pt_ol1" style="vertical-align:bottom;"/>
+                                 <af:spacer width="10" height="40px" id="pt_s10"/>
+                              <!--  <af:image id="i1"  source="/Images/FedexLogo.png" inlineStyle="height:40px; width:80px;" />-->
+                               
+                                <af:spacer width="20" height="10" id="pt_s9"/>
+                                <af:spacer width="650" height="10" id="pt_s6"/>
+                        <af:panelGroupLayout layout="vertical" id="pt_pgl6">
+                           
+                                <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                               value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                               model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                               queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                    <f:facet name="end">
+                                        <af:commandLink text="Advanced" rendered="false" id="pt_cl1"/>
+                                    </f:facet>
+                                </af:quickQuery>
+                           
+                        </af:panelGroupLayout>
+                        <af:spacer width="10" height="10" id="pt_s12"/>
+                                
+                                
+                                
+                                <af:spacer width="20" height="10" id="pt_s7"/>
+                                <af:button text="Manage Resources" id="pt_b1"
+                                           action="#{DashboardBean.goToManageResources}"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        
+                        
+                        <af:panelGroupLayout id="pt_pgl2" layout="horizontal"
+                                             inlineStyle="background-color:White; 
+                                             height:50px; width:500px;">
+                            <af:button  text="Delinquent" id="pt_cl2"
+                                    inlineStyle="font-size:small; font-weight:bold; color:Black;" immediate="true"
+                                    
+                                     action="#{DashboardBean.goToDelinquent}"/>
+                        
+                            <af:button text="Promices" id="pt_cl3"
+                                      immediate="true" inlineStyle="font-size:small; font-weight:bold; color:Black;"
+                                     />
+                           
+                            <af:button text="Startegy tasks" id="pt_cl6"
+                                     inlineStyle="font-size:small; font-weight:bold; color:Black;" immediate="true"
+                                     />
+                        
+                                
+                            <af:button text="Activities" id="pt_cl7"
+                                     inlineStyle="font-size:small; font-weight:bold; color:Black;" immediate="true"
+                                     
+                                    action="#{DashboardBean.goToactivities}"/>
+                       
+                        </af:panelGroupLayout>
+                      
+                    </af:panelGroupLayout>
+                </f:facet>
+    
+       <f:facet name="center">
+            <af:panelStretchLayout id="pt_psl1" topHeight="80px">    
+                <f:facet name="center">
+                    <af:panelGroupLayout layout="vertical" id="pt_pgl5">
+                        <af:facetRef facetName="body"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+             
+            </af:panelStretchLayout>
+        </f:facet>
+        
+       
+        
+    </af:decorativeBox>
+    <af:xmlContent>
+        <afc:component>
+            <afc:display-name>DashboardTemplete</afc:display-name>
+            <afc:facet>
+                <afc:description>body</afc:description>
+                <afc:facet-name>body</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+</af:pageTemplateDef>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="manageresourcesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HeaderVO1" RangeSize="25" DataControl="AppModuleDataControl" id="HeaderVO1Iterator"/>
+    <iterator Binds="LinesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="LinesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="HeaderVO1Iterator" id="HeaderVO1">
+      <nodeDefinition DefName="model.VO.HeaderVO" Name="HeaderVO10">
+        <AttrNames>
+          <Item Value="BusUnit"/>
+          <Item Value="CurrCd"/>
+          <Item Value="DelqncAcc"/>
+          <Item Value="DelqncAmt"/>
+          <Item Value="DelqncAvg"/>
+          <Item Value="DelqncCnt"/>
+          <Item Value="DelqncCust"/>
+          <Item Value="DelqncSites"/>
+          <Item Value="EmpId"/>
+          <Item Value="EmpName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="HeaderVO1Iterator" id="HeaderVO11">
+      <nodeDefinition DefName="model.VO.HeaderVO" Name="HeaderVO110">
+        <AttrNames>
+          <Item Value="BusUnit"/>
+          <Item Value="CurrCd"/>
+          <Item Value="DelqncAcc"/>
+          <Item Value="DelqncAmt"/>
+          <Item Value="DelqncAvg"/>
+          <Item Value="DelqncCnt"/>
+          <Item Value="DelqncCust"/>
+          <Item Value="DelqncSites"/>
+          <Item Value="EmpId"/>
+          <Item Value="EmpName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LinesVO1Iterator" id="LinesVO1">
+      <nodeDefinition DefName="model.VO.LinesVO" Name="LinesVO10">
+        <AttrNames>
+          <Item Value="BalBeyond60"/>
+          <Item Value="BalOn30"/>
+          <Item Value="BalOn60"/>
+          <Item Value="CurrentBal"/>
+          <Item Value="CustomerName"/>
+          <Item Value="DelqncAmt"/>
+          <Item Value="DelqncAvg"/>
+          <Item Value="DelqncCnt"/>
+          <Item Value="EmpId"/>
+          <Item Value="RowID"/>
+          <Item Value="TotalDue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="LinesVO1Iterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LinesVO1Iterator" id="EmpName">
+      <AttrNames>
+        <Item Value="EmpName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
